@@ -1,23 +1,23 @@
 {
-  "name": "juri",
-  "version": "1.0.3",
+  "name": "juri-cutlery",
+  "version": "1.0.0",
   "description": "Encode JSON into compact, readable URL-safe strings",
-  "main": "juri.js",
+  "main": "juri-cutlery.js",
   "scripts": {
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scrollback/kramer.git"
+    "url": "git+https://github.com/bengillies/juri-cutlery.git"
   },
   "keywords": [
     "json",
     "url-encode"
   ],
-  "author": "scrollback",
+  "author": "bengillies",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scrollback/kramer/issues"
+    "url": "https://github.com/bengillies/juri-cutlery/issues"
   },
-  "homepage": "https://github.com/scrollback/kramer#readme"
+  "homepage": "https://github.com/bengillies/juri-cutlery#readme"
 }

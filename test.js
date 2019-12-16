@@ -1,10 +1,10 @@
-var assert = require("assert");
+var assert = require("assert").strict;
 
 var dict = [ "red", "yellow", "orange", "blue", "green", "white",
 	"Asia", "North America", "South America",
 	"name", "continent", "flagColors",
 	"leader", "title", "term", "population", "平" ],
-	kramer = require("./juri.js")(dict),
+	juriCutlery = require("./juri-cutlery.js")(dict),
     data = {
         zh: {
             name: "China", continent: "Asia",
@@ -16,7 +16,7 @@ var dict = [ "red", "yellow", "orange", "blue", "green", "white",
             name: "India", continent: "", a: true, b: false, c: null,
 			emptyArray: [], emptyObject: {},
             flagColors: ["orange", "white", "green"],
-            leader: { name: "Narendra\nModi.", undef: undefined, title: "Prime Minister", term: 119 },
+            leader: { name: "Narendra\nModi.", title: "Prime Minister", term: 119 },
 			population: 1.19E9,
 			nan: NaN,
 			infi: Infinity,
@@ -25,14 +25,20 @@ var dict = [ "red", "yellow", "orange", "blue", "green", "white",
         },
 		array: ["asdf", [3, undefined, 4]]
     },
-	encoded = kramer.encodeQString(data),
-	decoded = kramer.decodeQString(encoded),
+	encoded = juriCutlery.encodeQString(data),
+	decoded = juriCutlery.decodeQString(encoded),
 	json = JSON.stringify(data);
 
-console.log("Original: ", data);
-console.log("Encoded: ", encoded);
-console.log("Decoded: ", decoded);
-assert.deepEqual(data, decoded);
+console.log('data test encoded:', encoded);
+console.log(assert.deepEqual(data, decoded));
+
+// it ignores undefined object properties
+const undefEncoded = juriCutlery.encodeQString({ foo: "bar", undef: undefined });
+const undefDecoded = juriCutlery.decodeQString(undefEncoded);
+console.log('undefined test encoded:', undefEncoded);
+console.log(assert.deepEqual(undefDecoded, { foo: "bar" }));
+
+
 console.log(
 	"Compressed to " +
 	Math.round(encoded.length * 10000 / json.length)/100 +

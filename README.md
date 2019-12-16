@@ -3,6 +3,11 @@ juri-cutlery
 
 __NOTE__: This is a fork of the original [juri](https://github.com/scrollback/juri) package, which appears to be unmaintained. The sole purpose of this repo is to fix bugs rather than add features/expand on the API. If the original repo comes back to life, it is highly likely this package will be abandoned without notice in favour of that package.
 
+Differences
+-----------
+
+1. Negative numbers serialise properly
+
 Installation
 ------------
 

@@ -23,7 +23,7 @@ var dict = [ "red", "yellow", "orange", "blue", "green", "white",
 			neginf: -Infinity,
 			nul: null
         },
-		array: ["asdf", [3, undefined, 4, -1]]
+		array: ["asdf", [3, undefined, 4, -1, 123.45678, -123.45678]]
     },
 	encoded = juriCutlery.encodeQString(data),
 	decoded = juriCutlery.decodeQString(encoded),

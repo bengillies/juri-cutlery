@@ -69,7 +69,11 @@ module.exports = function(dictionary) {
 
 	function encodeInteger(t) {
 		var s = "";
-		while(t) { s = chars[t % 64] + s; t = Math.floor(t / 64); }
+		t = Math.abs(t);
+		while(t) {
+			s = chars[t % 64] + s;
+			t = Math.floor(t / 64);
+		}
 		return s || "0";
 	}
 
